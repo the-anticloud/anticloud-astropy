@@ -1,0 +1,81 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:77aab3d2-c9eb-56ea-bf1d-5689465e3323",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-05T17:02:11Z",
+    "component": {
+      "type": "application",
+      "name": "ASTROPY",
+      "version": "dbc166777572",
+      "bom-ref": "pkg:generic/anticloud/ASTROPY@dbc166777572",
+      "purl": "pkg:generic/anticloud/ASTROPY@dbc166777572",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "dbc166777572dd4eefd86057bf11a4791e9c958e"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/astropy/astropy"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "astropy-iers-data",
+      "version": ">=0.2026.7.27.0.56.29",
+      "purl": "pkg:pypi/astropy-iers-data@0.2026.7.27.0.56.29",
+      "bom-ref": "pypi/astropy-iers-data@>=0.2026.7.27.0.56.29"
+    },
+    {
+      "type": "library",
+      "name": "numpy",
+      "version": ">=2.0",
+      "purl": "pkg:pypi/numpy@2.0",
+      "bom-ref": "pypi/numpy@>=2.0"
+    },
+    {
+      "type": "library",
+      "name": "packaging",
+      "version": ">=25.0",
+      "purl": "pkg:pypi/packaging@25.0",
+      "bom-ref": "pypi/packaging@>=25.0"
+    },
+    {
+      "type": "library",
+      "name": "pyerfa",
+      "version": ">=2.0.1.3",
+      "purl": "pkg:pypi/pyerfa@2.0.1.3",
+      "bom-ref": "pypi/pyerfa@>=2.0.1.3"
+    },
+    {
+      "type": "library",
+      "name": "PyYAML",
+      "version": ">=6.0.1",
+      "purl": "pkg:pypi/pyyaml@6.0.1",
+      "bom-ref": "pypi/PyYAML@>=6.0.1"
+    },
+    {
+      "type": "library",
+      "name": "configobj",
+      "version": ">=5.0.9",
+      "purl": "pkg:pypi/configobj@5.0.9",
+      "bom-ref": "pypi/configobj@>=5.0.9"
+    }
+  ]
+}

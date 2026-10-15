@@ -1,0 +1,1035 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "ASTROPY",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\SPACE_AEROTECH\\ASTROPY\\UPSTREAM_CLONE",
+    "git": {
+      "head": "dbc166777572dd4eefd86057bf11a4791e9c958e",
+      "url": "https://github.com/astropy/astropy",
+      "branch": "main",
+      "committed_at": "2026-10-01T17:21:38+00:00"
+    }
+  },
+  "metrics": {
+    "files_total": 1974,
+    "source_files_scanned": 1082,
+    "lines_of_code": 516970,
+    "languages": {
+      ".py": 993,
+      ".rst": 416,
+      "(none)": 75,
+      ".h": 69,
+      ".c": 65,
+      ".fits": 55,
+      ".hdr": 52,
+      ".dat": 43,
+      ".txt": 32,
+      ".xml": 26,
+      ".gz": 15,
+      ".png": 13,
+      ".ecsv": 13,
+      ".csv": 10,
+      ".pyx": 10
+    }
+  },
+  "licence": {
+    "spdx": "BSD-3-Clause",
+    "class": "A",
+    "source_file": "LICENSE.rst",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 6,
+    "unique": 6,
+    "by_ecosystem": {
+      "pypi": 6
+    },
+    "list": [
+      {
+        "ecosystem": "pypi",
+        "name": "astropy-iers-data",
+        "version": ">=0.2026.7.27.0.56.29",
+        "source_file": "pyproject.toml",
+        "raw": "astropy-iers-data>=0.2026.7.27.0.56.29"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "numpy",
+        "version": ">=2.0",
+        "source_file": "pyproject.toml",
+        "raw": "numpy>=2.0"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "packaging",
+        "version": ">=25.0",
+        "source_file": "pyproject.toml",
+        "raw": "packaging>=25.0"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "pyerfa",
+        "version": ">=2.0.1.3",
+        "source_file": "pyproject.toml",
+        "raw": "pyerfa>=2.0.1.3"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "PyYAML",
+        "version": ">=6.0.1",
+        "source_file": "pyproject.toml",
+        "raw": "PyYAML>=6.0.1"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "configobj",
+        "version": ">=5.0.9",
+        "source_file": "pyproject.toml",
+        "raw": "configobj>=5.0.9"
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 438,
+    "files_with_findings": 357,
+    "severity": {
+      "high": 67,
+      "medium": 20,
+      "low": 351
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 3,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "astropy/table/table.py",
+            "line": 1567,
+            "cwe": "CWE-295",
+            "snippet": "table, newcols, verify=False, names=self.columns.keys()"
+          },
+          {
+            "severity": "high",
+            "file": "astropy/io/fits/connect.py",
+            "line": 519,
+            "cwe": "CWE-295",
+            "snippet": "# verify=False stops it reading and checking the existing file."
+          },
+          {
+            "severity": "high",
+            "file": "astropy/io/fits/tests/test_convenience.py",
+            "line": 397,
+            "cwe": "CWE-295",
+            "snippet": "# Test case 3: append to existing file, with verify=False"
+          }
+        ]
+      },
+      "A02-CryptographicFailures": {
+        "count": 6,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "cextern/expat/lib/siphash.h",
+            "line": 64,
+            "cwe": "CWE-338",
+            "snippet": "* \tarc4random_buf(secret, sizeof secret);"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/expat/lib/xmlparse.c",
+            "line": 138,
+            "cwe": "CWE-327",
+            "snippet": "&& (defined(HAVE_ARC4RANDOM_BUF) || defined(HAVE_ARC4RANDOM))"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/utils/data.py",
+            "line": 1039,
+            "cwe": "CWE-327",
+            "snippet": "h = hashlib.md5(usedforsecurity=False)"
+          },
+          {
+            "severity": "high",
+            "file": "astropy/utils/xml/src/expat_config.h",
+            "line": 15,
+            "cwe": "CWE-327",
+            "snippet": "/* #undef HAVE_ARC4RANDOM */"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/utils/tests/test_data.py",
+            "line": 1066,
+            "cwe": "CWE-327",
+            "snippet": "shash = hashlib.md5(rands, usedforsecurity=False).hexdigest()"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/io/votable/validator/result.py",
+            "line": 26,
+            "cwe": "CWE-327",
+            "snippet": "m = hashlib.md5(usedforsecurity=False)"
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 66,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/cel.c",
+            "line": 157,
+            "cwe": "CWE-120",
+            "snippet": "wcsprintf(\"       flag: %d\\n\", cel->flag);"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/cel.h",
+            "line": 153,
+            "cwe": "CWE-120",
+            "snippet": "* celprt() prints the contents of a celprm struct using wcsprintf().  Mainly"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/dis.c",
+            "line": 553,
+            "cwe": "CWE-120",
+            "snippet": "wcsprintf(\"The disprm struct is UNINITIALIZED.\\n\");"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/dis.h",
+            "line": 624,
+            "cwe": "CWE-120",
+            "snippet": "* disprt() prints the contents of a disprm struct using wcsprintf().  Mainly"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/fitshdr.h",
+            "line": 240,
+            "cwe": "CWE-120",
+            "snippet": "=       sprintf(dst, \"%.8s\", keyword)"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/lin.c",
+            "line": 527,
+            "cwe": "CWE-120",
+            "snippet": "wcsprintf(\"The linprm struct is UNINITIALIZED.\\n\");"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/lin.h",
+            "line": 284,
+            "cwe": "CWE-120",
+            "snippet": "* linprt() prints the contents of a linprm struct using wcsprintf().  Mainly"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/prj.c",
+            "line": 249,
+            "cwe": "CWE-120",
+            "snippet": "wcsprintf(\"       flag: %d\\n\",  prj->flag);"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/prj.h",
+            "line": 236,
+            "cwe": "CWE-120",
+            "snippet": "* prjprt() prints the contents of a prjprm struct using wcsprintf().  Mainly"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/spc.c",
+            "line": 191,
+            "cwe": "CWE-120",
+            "snippet": "wcsprintf(\"       flag: %d\\n\", spc->flag);"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/spc.h",
+            "line": 268,
+            "cwe": "CWE-120",
+            "snippet": "* spcprt() prints the contents of a spcprm struct using wcsprintf().  Mainly"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/tab.c",
+            "line": 656,
+            "cwe": "CWE-120",
+            "snippet": "wcsprintf(\"The tabprm struct is UNINITIALIZED.\\n\");"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/tab.h",
+            "line": 293,
+            "cwe": "CWE-120",
+            "snippet": "* tabprt() prints the contents of a tabprm struct using wcsprintf().  Mainly"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/wcs.c",
+            "line": 2085,
+            "cwe": "CWE-120",
+            "snippet": "wcsprintf(\"   %s: UNDEFINED\\n\", name);"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/wcs.h",
+            "line": 580,
+            "cwe": "CWE-120",
+            "snippet": "* wcsprt() prints the contents of a wcsprm struct using wcsprintf().  Mainly"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/wcserr.c",
+            "line": 90,
+            "cwe": "CWE-120",
+            "snippet": "wcsprintf(\"Error messaging is not enabled, use wcserr_enable().\\n\");"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/wcserr.h",
+            "line": 123,
+            "cwe": "CWE-120",
+            "snippet": "* It uses the wcsprintf() functions."
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/wcsprintf.c",
+            "line": 83,
+            "cwe": "CWE-120",
+            "snippet": "int wcsprintf(const char *format, ...)"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/wcsprintf.h",
+            "line": 34,
+            "cwe": "CWE-120",
+            "snippet": "* a file or captured in a string buffer.  Those routines all use wcsprintf()"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/wcsutil.h",
+            "line": 415,
+            "cwe": "CWE-120",
+            "snippet": "* wcsutil_double2str() converts a double to a string, but unlike sprintf() it"
+          },
+          {
+            "severity": "high",
+            "file": "cextern/wcslib/C/flexed/wcsutrn.c",
+            "line": 4763,
+            "cwe": "CWE-120",
+            "snippet": "strcat(unitstr, \"[\");"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/wcs/wcsapi/utils.py",
+            "line": 62,
+            "cwe": "CWE-89",
+            "snippet": "s += (('{0:' + str(pixel_dim_width) + 's}').format('Pixel Dim') + '  ' +"
+          },
+          {
+            "severity": "high",
+            "file": "astropy/wcs/tests/test_pickle.py",
+            "line": 25,
+            "cwe": "CWE-502",
+            "snippet": "pickle.loads(s)"
+          },
+          {
+            "severity": "high",
+            "file": "astropy/wcs/src/wcslib_auxprm_wrap.c",
+            "line": 73,
+            "cwe": "CWE-120",
+            "snippet": "wcsprintf(\"rsun_ref:\");"
+          },
+          {
+            "severity": "high",
+            "file": "astropy/wcs/src/wcslib_prjprm_wrap.c",
+            "line": 381,
+            "cwe": "CWE-120",
+            "snippet": "strcpy(self->x->code, \"   \");"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 240,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "docs/conf.py",
+            "line": 12,
+            "cwe": "CWE-",
+            "snippet": "# If extensions (or modules to document with autodoc) are in another directory,"
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/dis.h",
+            "line": 229,
+            "cwe": "CWE-",
+            "snippet": "=   0: 1     4: xx      12: xxxx      24: xxxxxx      40: xxxxxxxx"
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/wcshdr.c",
+            "line": 1539,
+            "cwe": "CWE-",
+            "snippet": "strncpy(term, \"xxxxxxxxx\", p);"
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/flexed/wcsulex.c",
+            "line": 308,
+            "cwe": "CWE-",
+            "snippet": "/* TODO: this is always defined, so inline it */"
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/flexed/wcsutrn.c",
+            "line": 308,
+            "cwe": "CWE-",
+            "snippet": "/* TODO: this is always defined, so inline it */"
+          },
+          {
+            "severity": "low",
+            "file": "cextern/expat/lib/expat.h",
+            "line": 72,
+            "cwe": "CWE-",
+            "snippet": "Otherwise, the #define hackery is quite ugly and would have been"
+          },
+          {
+            "severity": "low",
+            "file": "cextern/expat/lib/xmlparse.c",
+            "line": 1714,
+            "cwe": "CWE-",
+            "snippet": "XXX There's no way for the caller to determine which of the"
+          },
+          {
+            "severity": "low",
+            "file": "cextern/expat/lib/xmltok.c",
+            "line": 335,
+            "cwe": "CWE-",
+            "snippet": "== 0xf0u) { /* 4-byte character, lead by 0b11110xxx byte */"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/utils.py",
+            "line": 242,
+            "cwe": "CWE-",
+            "snippet": "# TODO: once we have a BaseBodyFrame, replace this with an isinstance check"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/wcs.py",
+            "line": 1424,
+            "cwe": "CWE-",
+            "snippet": "# TODO: Parse SIP from a string without pyfits around"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/wcslint.py",
+            "line": 17,
+            "cwe": "CWE-",
+            "snippet": "# TODO: pass suggest_on_error as kwarg when PYTHON_LT_14 is dropped"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/wcsapi/fitswcs.py",
+            "line": 276,
+            "cwe": "CWE-",
+            "snippet": "# TODO: need to support e.g. TT(TAI)"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/wcsapi/high_level_api.py",
+            "line": 244,
+            "cwe": "CWE-",
+            "snippet": "# FIXME: For now SkyCoord won't auto-convert upon initialization"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/wcsapi/low_level_api.py",
+            "line": 39,
+            "cwe": "CWE-",
+            "snippet": "type exists, this can instead be ``\"custom:xxx\"``, where ``xxx`` is an"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/wcsapi/wrappers/tests/test_sliced_wcs.py",
+            "line": 79,
+            "cwe": "CWE-",
+            "snippet": "# FIXME: do we still need the first two since the third assert"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/wcsapi/tests/test_fitswcs.py",
+            "line": 679,
+            "cwe": "CWE-",
+            "snippet": "# FIXME: alt won't work for now because ERFA doesn't implement the IAU 1976"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/tests/test_utils.py",
+            "line": 815,
+            "cwe": "CWE-",
+            "snippet": "# TODO: Some inputs emit RuntimeWarning from here onwards."
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/tests/test_wcs.py",
+            "line": 184,
+            "cwe": "CWE-",
+            "snippet": "# TODO: write this to test the expected output behavior of pix2world,"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/tests/test_wcsprm.py",
+            "line": 114,
+            "cwe": "CWE-",
+            "snippet": "# TODO: We need some data with -NCP or -GLS projections to test"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/src/distortion.c",
+            "line": 13,
+            "cwe": "CWE-",
+            "snippet": "/* TODO: n-dimensional support */"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/src/wcslib_auxprm_wrap.c",
+            "line": 353,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: this seems logical but this slot wasn't previously set"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/src/wcslib_prjprm_wrap.c",
+            "line": 207,
+            "cwe": "CWE-",
+            "snippet": "// TODO: This assumes the same shape for the input arrays."
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/src/wcslib_wrap.c",
+            "line": 2055,
+            "cwe": "CWE-",
+            "snippet": "/* TODO: This is convenient for debugging for now -- but it's not very"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/src/wcslib_wtbarr_wrap.c",
+            "line": 206,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: this seems logical but this slot was not previously defined"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/wcs/include/astropy_wcs/distortion.h",
+            "line": 11,
+            "cwe": "CWE-",
+            "snippet": "/* TODO: This is all two-dimensional.  Should be made"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 10,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "astropy/wcs/wcs.py",
+            "line": 2365,
+            "cwe": "CWE-1188",
+            "snippet": "detect_divergence : bool, optional (default = True)"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/timeseries/periodograms/lombscargle_multiband/core.py",
+            "line": 64,
+            "cwe": "CWE-1188",
+            "snippet": "regularize_by_trace : bool (default = True)"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/timeseries/periodograms/lombscargle_multiband/implementations/mle.py",
+            "line": 88,
+            "cwe": "CWE-1188",
+            "snippet": "center_data : bool (default=True)"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/timeseries/periodograms/lombscargle/implementations/fast_impl.py",
+            "line": 33,
+            "cwe": "CWE-1188",
+            "snippet": "center_data : bool (default=True)"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/timeseries/periodograms/lombscargle/implementations/mle.py",
+            "line": 18,
+            "cwe": "CWE-1188",
+            "snippet": "bias : bool (default=True)"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/table/table.py",
+            "line": 2676,
+            "cwe": "CWE-1188",
+            "snippet": "Make copy of the input ``col``, default=True"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/samp/hub_script.py",
+            "line": 52,
+            "cwe": "CWE-1188",
+            "snippet": "default=True,"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/io/fits/connect.py",
+            "line": 519,
+            "cwe": "CWE-1188",
+            "snippet": "# verify=False stops it reading and checking the existing file."
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/io/fits/scripts/fitsdiff.py",
+            "line": 169,
+            "cwe": "CWE-1188",
+            "snippet": "default=True,"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/convolution/convolve.py",
+            "line": 868,
+            "cwe": "CWE-1188",
+            "snippet": "if fft_pad:  # default=True"
+          }
+        ]
+      },
+      "A06-VulnerableComponents": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "scripts/check-lowest-resolved-tree.py",
+            "line": 4,
+            "cwe": "CWE-1104",
+            "snippet": "#     \"uv==0.12.11\","
+          }
+        ]
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 110,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "docs/conf.py",
+            "line": 433,
+            "cwe": "CWE-319",
+            "snippet": "\"http://data.astropy.org\","
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/cel.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/cel.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/dis.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/dis.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/fitshdr.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/getwcstab.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/getwcstab.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/lin.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/lin.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/log.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/log.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/prj.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/prj.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/spc.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/spc.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/sph.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/sph.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/spx.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/spx.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/tab.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/tab.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/wcs.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/wcs.h",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          },
+          {
+            "severity": "low",
+            "file": "cextern/wcslib/C/wcserr.c",
+            "line": 18,
+            "cwe": "CWE-319",
+            "snippet": "along with WCSLIB.  If not, see http://www.gnu.org/licenses."
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "astropy/io/fits/tests/test_core.py",
+            "line": 700,
+            "cwe": "CWE-918",
+            "snippet": "with urllib.request.urlopen(file_url) as urlobj:"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/coordinates/tests/test_name_resolve.py",
+            "line": 185,
+            "cwe": "CWE-918",
+            "snippet": "if urllib.request.urlopen(url).getcode() == 200:"
+          }
+        ]
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 10,
+    "files_with_findings": 10,
+    "severity": {
+      "high": 0,
+      "medium": 2,
+      "low": 8
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "astropy/io/ascii/mrt.py",
+            "line": 619,
+            "cwe": "CWE-1336",
+            "snippet": "bbb_template = Template(\"\\n\".join(BYTE_BY_BYTE_TEMPLATE))"
+          },
+          {
+            "severity": "medium",
+            "file": "astropy/io/ascii/tests/test_write.py",
+            "line": 675,
+            "cwe": "CWE-1336",
+            "snippet": "tablehead = Template("
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM09-Misinformation": {
+        "count": 8,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "astropy/stats/tests/test_biweight.py",
+            "line": 254,
+            "cwe": "CWE-",
+            "snippet": "assert_allclose(var, 2.9238456)  # verified with R"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/modeling/tests/test_fitters.py",
+            "line": 1587,
+            "cwe": "CWE-",
+            "snippet": "assert _verify_dims_in_fitting(None)"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/modeling/tests/test_quantities_fitting.py",
+            "line": 321,
+            "cwe": "CWE-",
+            "snippet": "assert not _verify_dims_in_fitting(compound)"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/io/fits/tests/test_checksum.py",
+            "line": 187,
+            "cwe": "CWE-",
+            "snippet": "assert tbhdu.verify_checksum() == 1"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/io/fits/tests/test_core.py",
+            "line": 1668,
+            "cwe": "CWE-",
+            "snippet": "assert \"Verification reported errors\" in str(w[0].message)"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/io/fits/tests/test_header.py",
+            "line": 373,
+            "cwe": "CWE-",
+            "snippet": "assert \"Verification reported errors\" in str(w[0].message)"
+          },
+          {
+            "severity": "low",
+            "file": "astropy/io/fits/tests/test_table.py",
+            "line": 4429,
+            "cwe": "CWE-",
+            "snippet": "assert str(w[0].message) == \"Verification reported errors:\""
+          },
+          {
+            "severity": "low",
+            "file": "astropy/io/fits/hdu/compressed/tests/test_compressed.py",
+            "line": 1551,
+            "cwe": "CWE-",
+            "snippet": "assert len(verify_warnings) == 0, f\"Got warnings: {verify_warnings}\""
+          }
+        ]
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:77aab3d2-c9eb-56ea-bf1d-5689465e3323",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-06T06:40:53Z",
+      "component": {
+        "type": "application",
+        "name": "ASTROPY",
+        "version": "dbc166777572",
+        "bom-ref": "pkg:generic/anticloud/ASTROPY@dbc166777572",
+        "purl": "pkg:generic/anticloud/ASTROPY@dbc166777572",
+        "licenses": [
+          {
+            "license": {
+              "id": "BSD-3-Clause"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "dbc166777572dd4eefd86057bf11a4791e9c958e"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/astropy/astropy"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "astropy-iers-data",
+        "version": ">=0.2026.7.27.0.56.29",
+        "purl": "pkg:pypi/astropy-iers-data@0.2026.7.27.0.56.29",
+        "bom-ref": "pypi/astropy-iers-data@>=0.2026.7.27.0.56.29"
+      },
+      {
+        "type": "library",
+        "name": "numpy",
+        "version": ">=2.0",
+        "purl": "pkg:pypi/numpy@2.0",
+        "bom-ref": "pypi/numpy@>=2.0"
+      },
+      {
+        "type": "library",
+        "name": "packaging",
+        "version": ">=25.0",
+        "purl": "pkg:pypi/packaging@25.0",
+        "bom-ref": "pypi/packaging@>=25.0"
+      },
+      {
+        "type": "library",
+        "name": "pyerfa",
+        "version": ">=2.0.1.3",
+        "purl": "pkg:pypi/pyerfa@2.0.1.3",
+        "bom-ref": "pypi/pyerfa@>=2.0.1.3"
+      },
+      {
+        "type": "library",
+        "name": "PyYAML",
+        "version": ">=6.0.1",
+        "purl": "pkg:pypi/pyyaml@6.0.1",
+        "bom-ref": "pypi/PyYAML@>=6.0.1"
+      },
+      {
+        "type": "library",
+        "name": "configobj",
+        "version": ">=5.0.9",
+        "purl": "pkg:pypi/configobj@5.0.9",
+        "bom-ref": "pypi/configobj@>=5.0.9"
+      }
+    ]
+  },
+  "elapsed_seconds": 317.76
+}
